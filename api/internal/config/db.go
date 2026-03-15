@@ -3,7 +3,7 @@ package config
 import (
 	"log"
 	"os"
-	"api/internal/models"
+	"khanhlinh-backend/api/internal/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"

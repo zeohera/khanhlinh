@@ -13,8 +13,8 @@ import (
 	"strconv"
 	"strings"
 
-	"api/internal/config"
-	"api/internal/models"
+	"khanhlinh-backend/api/internal/config"
+	"khanhlinh-backend/api/internal/models"
 
 	"github.com/gin-gonic/gin"
 )

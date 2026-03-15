@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"api/internal/controllers"
+	"khanhlinh-backend/api/internal/controllers"
 
 	"github.com/gin-gonic/gin"
 )

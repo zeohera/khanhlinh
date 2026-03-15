@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"api/internal/config"
-	"api/internal/routes"
+	"khanhlinh-backend/api/internal/config"
+	"khanhlinh-backend/api/internal/routes"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"

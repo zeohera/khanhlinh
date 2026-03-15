@@ -11,7 +11,7 @@ import (
 	"os"
 	"strings"
 
-	"api/internal/config"
+	"khanhlinh-backend/api/internal/config"
 )
 
 // AnalysisResult is what Gemini Vision returns
