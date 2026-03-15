@@ -9,8 +9,8 @@ import (
 	"strconv"
 	"strings"
 
-	"khanhlinh-backend/api/config"
-	"khanhlinh-backend/api/models"
+	"api/config"
+	"api/models"
 
 	"github.com/gin-gonic/gin"
 )
