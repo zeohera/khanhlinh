@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"khanhlinh-backend/config"
-	"khanhlinh-backend/models"
+	"khanhlinh-backend/api/config"
+	"khanhlinh-backend/api/models"
 
 	"github.com/gin-gonic/gin"
 )
