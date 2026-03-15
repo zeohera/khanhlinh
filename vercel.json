@@ -3,8 +3,5 @@
     "api/*.go": {
       "runtime": "vercel-go@latest"
     }
-  },
-  "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/index.go" }
-  ]
+  }
 }
