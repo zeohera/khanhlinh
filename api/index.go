@@ -7,8 +7,8 @@ import (
 	"sync"
 	"time"
 
-	"api/config"
-	"api/routes"
+	"api/internal/config"
+	"api/internal/routes"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"

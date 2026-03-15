@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"strconv"
 
-	"api/config"
-	"api/models"
+	"api/internal/config"
+	"api/internal/models"
 
 	"github.com/gin-gonic/gin"
 )

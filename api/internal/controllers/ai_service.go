@@ -11,7 +11,7 @@ import (
 	"os"
 	"strings"
 
-	"api/config"
+	"api/internal/config"
 )
 
 // AnalysisResult is what Gemini Vision returns

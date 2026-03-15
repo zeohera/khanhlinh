@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"log"
 
-	"api/config"
-	"api/models"
+	"api/internal/config"
+	"api/internal/models"
 
 	"gorm.io/driver/sqlite"
 	"gorm.io/gorm"

@@ -3,7 +3,7 @@ package config
 import (
 	"log"
 	"os"
-	"api/models"
+	"api/internal/models"
 
 	"gorm.io/driver/postgres"
 	"gorm.io/driver/sqlite"
