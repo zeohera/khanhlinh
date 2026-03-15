@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"os"
 	"time"
 
 	"khanhlinh-backend/config"
@@ -35,8 +36,13 @@ func main() {
 
 	routes.SetupRoutes(r)
 
-	log.Println("Server is running on port 8080...")
-	if err := r.Run(":8080"); err != nil {
+	port := os.Getenv("PORT")
+	if port == "" {
+		port = "8080"
+	}
+
+	log.Printf("Server is running on port %s...", port)
+	if err := r.Run(":" + port); err != nil {
 		log.Fatal("Server run failed: ", err)
 	}
 }
