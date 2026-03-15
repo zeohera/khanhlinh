@@ -1,6 +1,6 @@
 module khanhlinh-backend
 
-go 1.25.0
+go 1.21.0
 
 require (
 	github.com/cloudinary/cloudinary-go/v2 v2.14.1
