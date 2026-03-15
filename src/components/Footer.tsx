@@ -29,7 +29,7 @@ export default function Footer() {
             </div>
             <p className="footer-tagline">
               Nhà phân phối chính thức Vali Hùng Phát tại Vĩnh Phúc.
-              Tổng kho sỉ hot trend: Gấu Bông · Mũ Bảo Hiểm · Túi Ví Da · Đồ Chơi · Văn Phòng Phẩm.
+              Tổng kho đầu trăm hot trend: Gấu Bông · Mũ Bảo Hiểm · Túi Ví Da · Đồ Chơi · Văn Phòng Phẩm.
               Tuyển CTV toàn quốc – Giá tận gốc! 🌸
             </p>
             <a href="tel:0965699399" className="footer-phone">

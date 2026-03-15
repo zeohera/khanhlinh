@@ -1,37 +1,52 @@
-const contactItems = [
-  {
-    icon: '📞',
-    label: 'Điện thoại / Zalo',
-    value: '0965 699 399 · 0949 231 826',
-    href: 'tel:0965699399',
-  },
-  {
-    icon: '📍',
-    label: 'Địa chỉ cửa hàng',
-    value: 'Đường đôi, phố Tân Phát, xã Thổ Tang, Vĩnh Phúc',
-    href: 'https://maps.app.goo.gl/TpEuzCXo31nRFwnB8',
-  },
-  {
-    icon: '🕐',
-    label: 'Giờ mở cửa',
-    value: 'Thứ 2 – Chủ Nhật: 7:00 – 20:00',
-    href: undefined,
-  },
-]
+interface ContactProps {
+  data?: {
+    badge?: string;
+    title?: string;
+    highlight?: string;
+    subtitle?: string;
+    phone?: string;
+    phoneHref?: string;
+    address?: string;
+    mapHref?: string;
+    hours?: string;
+    facebookUrl?: string;
+    mapEmbedSrc?: string;
+  };
+}
 
-export default function Contact() {
+export default function Contact({ data }: ContactProps) {
+  const contactItems = [
+    {
+      icon: '📞',
+      label: 'Điện thoại / Zalo',
+      value: data?.phone || '0965 699 399 · 0949 231 826',
+      href: data?.phoneHref || 'tel:0965699399',
+    },
+    {
+      icon: '📍',
+      label: 'Địa chỉ cửa hàng',
+      value: data?.address || 'Đường đôi, phố Tân Phát, xã Thổ Tang, Vĩnh Phúc',
+      href: data?.mapHref || 'https://maps.app.goo.gl/TpEuzCXo31nRFwnB8',
+    },
+    {
+      icon: '🕐',
+      label: 'Giờ mở cửa',
+      value: data?.hours || 'Thứ 2 – Chủ Nhật: 7:00 – 20:00',
+      href: undefined,
+    },
+  ];
+
   return (
     <section className="contact" id="contact">
       <div className="container">
         <div className="contact-header">
-          <div className="section-badge">📍 Liên hệ & Tìm đến</div>
+          <div className="section-badge">{data?.badge || '📍 Liên hệ & Tìm đến'}</div>
           <h2 className="section-title">
-            Đến Ghé Thăm{' '}
-            <span className="highlight">Cửa Hàng Khánh Linh</span>
+            {data?.title || 'Đến Ghé Thăm'}{' '}
+            <span className="highlight">{data?.highlight || 'Cửa Hàng Khánh Linh'}</span>
           </h2>
           <p className="section-subtitle" style={{ margin: '0 auto' }}>
-            Trực tiếp trải nghiệm sản phẩm tại cửa hàng hoặc liên hệ qua điện thoại/Zalo để được tư vấn
-            và đặt hàng giao tận nơi.
+            {data?.subtitle || 'Trực tiếp trải nghiệm sản phẩm tại cửa hàng hoặc liên hệ qua điện thoại/Zalo để được tư vấn và đặt hàng giao tận nơi.'}
           </p>
         </div>
 
@@ -67,14 +82,14 @@ export default function Contact() {
 
             <div className="contact-social">
               <a
-                href="https://web.facebook.com/khanhlinh1062"
+                href={data?.facebookUrl || "https://web.facebook.com/khanhlinh1062"}
                 target="_blank"
                 rel="noreferrer"
                 className="social-btn facebook"
               >
                 📘 Facebook Khánh Linh
               </a>
-              <a href="tel:0965699399" className="social-btn zalo">
+              <a href={data?.phoneHref || "tel:0965699399"} className="social-btn zalo">
                 💬 Zalo Ngay
               </a>
             </div>
@@ -84,7 +99,7 @@ export default function Contact() {
           <div className="map-container">
             <iframe
               title="Bản đồ NPP Khánh Linh"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.9429532287877!2d105.486983!3d21.2737256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134f30001d39839%3A0x8ed361a0eed26fa1!2zTlBQIGJhbG8sIHTDumkgeMOhY2gsIHZhbGksIHZwcCBLaMOhbmggTGluaA!5e0!3m2!1sen!2s!4v1772370285759!5m2!1sen!2s"
+              src={data?.mapEmbedSrc || "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.9429532287877!2d105.486983!3d21.2737256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3134f30001d39839%3A0x8ed361a0eed26fa1!2zTlBQIGJhbG8sIHTDumkgeMOhY2gsIHZhbGksIHZwcCBLaMOhbmggTGluaA!5e0!3m2!1sen!2s!4v1772370285759!5m2!1sen!2s"}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"

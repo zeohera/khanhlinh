@@ -1,9 +1,22 @@
-const categories = [
-  'Gấu Bông 🧸', 'Mũ Bảo Hiểm 🪖', 'Nón Mũ 🎩', 'Vali Hùng Phát 🧳',
-  'Túi Ví Da 👜', 'Cặp Sách & Balo 🎒', 'Đồ Chơi Thông Minh 🎮', 'Văn Phòng Phẩm 📎',
-]
+interface HeroProps {
+  data?: {
+    badge?: string;
+    title?: string;
+    subtitle?: string;
+    tags?: string[];
+    actions?: Array<{ label: string; href: string; type: 'primary' | 'outline' | 'glass' }>;
+  };
+  categories: string[];
+}
 
-export default function Hero() {
+export default function Hero({ data, categories: allCategories }: HeroProps) {
+  const displayCategories = (data?.tags && data.tags.length > 0) ? data.tags : allCategories;
+  const actions = data?.actions || [
+    { label: '🧳 Xem Vali', href: '#products', type: 'primary' },
+    { label: '🧸 Gấu Bông', href: '#gau-bong', type: 'outline' },
+    { label: '📞 Liên Hệ', href: 'tel:0965699399', type: 'glass' },
+  ];
+
   return (
     <section className="hero" id="home">
       {/* Decorative blobs */}
@@ -29,34 +42,45 @@ export default function Hero() {
         <div className="hero-inner">
           {/* Left Content */}
           <div>
-            <div className="hero-badge">✨ Tổng Kho Sỉ Hot Trend · Giá Tận Gốc</div>
+            <div className="hero-badge">{data?.badge || '✨ Tổng Kho Sỉ Hot Trend · Giá Tận Gốc'}</div>
 
-            <h1 className="hero-title">
-              Khánh Linh –<br />
-              <span style={{ fontStyle: 'italic' }}>Nhà Phân Phối</span><br />
-              Giá Tốt Nhất! 🌸
+            <h1 className="hero-title" style={{ whiteSpace: 'pre-line' }}>
+              {data?.title || (
+                <>
+                  Khánh Linh –<br />
+                  <span style={{ fontStyle: 'italic' }}>Nhà Phân Phối</span><br />
+                  Giá Tốt Nhất! 🌸
+                </>
+              )}
             </h1>
 
             <p className="hero-sub">
-              NPP chính thức <strong>Vali Hùng Phát</strong> · Gấu Bông · Mũ Bảo Hiểm và nhiều sản phẩm
-              hot trend khác tại Vĩnh Phúc. Giá tận gốc – Tuyển CTV toàn quốc!
+              {data?.subtitle || (
+                <>
+                  NPP chính thức <strong>Vali Hùng Phát</strong> · Gấu Bông · Mũ Bảo Hiểm và nhiều sản phẩm
+                  hot trend khác tại Vĩnh Phúc. Giá tận gốc – Tuyển CTV toàn quốc!
+                </>
+              )}
             </p>
 
             {/* Category tags */}
             <div className="hero-categories">
-              {categories.map(c => (
+              {displayCategories.map(c => (
                 <span key={c} className="hero-cat-tag">{c}</span>
               ))}
             </div>
 
             <div className="hero-actions">
-              <a href="#products" className="btn btn-white">🧳 Xem Vali</a>
-              <a href="#gau-bong" className="btn btn-outline" style={{ color: 'white', borderColor: 'rgba(255,255,255,0.5)' }}>
-                🧸 Gấu Bông
-              </a>
-              <a href="tel:0965699399" className="btn btn-white" style={{ background: 'rgba(255,255,255,0.15)', color: 'white' }}>
-                📞 Liên Hệ
-              </a>
+              {actions.map((btn, idx) => (
+                <a 
+                  key={idx} 
+                  href={btn.href} 
+                  className={`btn ${btn.type === 'primary' ? 'btn-white' : btn.type === 'outline' ? 'btn-outline' : 'btn-white'}`}
+                  style={btn.type === 'outline' ? { color: 'white', borderColor: 'rgba(255,255,255,0.5)' } : btn.type === 'glass' ? { background: 'rgba(255,255,255,0.15)', color: 'white' } : {}}
+                >
+                  {btn.label}
+                </a>
+              ))}
             </div>
           </div>
 
