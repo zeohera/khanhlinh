@@ -7,7 +7,7 @@ const { Title } = Typography;
 const { Option } = Select;
 const { TabPane } = Tabs;
 
-import { API_BASE_URL, API_ENDPOINTS } from '../config/api';
+import { API_ENDPOINTS } from '../config/api';
 
 interface Category {
   ID: number;
@@ -34,7 +34,7 @@ const Dashboard: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState('categories');
-  const [siteContent, setSiteContent] = useState<Record<string, any>>({});
+  // const [siteContent, setSiteContent] = useState<Record<string, any>>({});
 
   // Content Forms
   const [heroForm] = Form.useForm();
@@ -72,7 +72,7 @@ const Dashboard: React.FC = () => {
           console.error(e);
         }
       });
-      setSiteContent(contentMap);
+        // setSiteContent(contentMap);
       
       // Initialize forms
       if (contentMap.hero) heroForm.setFieldsValue(contentMap.hero);
