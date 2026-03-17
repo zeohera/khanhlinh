@@ -3,8 +3,8 @@ package controllers
 import (
 	"net/http"
 
-	"khanhlinh-backend/api/internal/config"
-	"khanhlinh-backend/api/internal/models"
+	"khanhlinh-backend/pkg/config"
+	"khanhlinh-backend/pkg/models"
 
 	"github.com/gin-gonic/gin"
 )
