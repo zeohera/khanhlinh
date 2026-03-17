@@ -1,4 +1,4 @@
-package main
+package handler
 
 import (
 	"log"
@@ -50,8 +50,8 @@ func initApp() {
 	})
 }
 
-// Handler is the entry point for Vercel Serverless Functions
-func Handler(w http.ResponseWriter, r *http.Request) {
+// Handler_api_index_go is the entry point for Vercel Serverless Functions
+func Handler_api_index_go(w http.ResponseWriter, r *http.Request) {
 	initApp()
 	engine.ServeHTTP(w, r)
 }
